@@ -1,45 +1,20 @@
 ---
 title: "Kristina Anamika Devi Howell"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  html_document
 ---
+-----------------------------------
 
 ## About Me
+MPH, Epidemiology. Focus on infectious disease and global health. Advocate for human rights, female empowerment, and Crenshaw's intersectionality framework. 
 
-Adding text
+On this site, you will find my experiences, academic history, and an example dashboard using data from the P8105 data science class. 
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
-
-
-## Subsection
-
-More text. 
-
-```{r}
-rnorm(10)
-```
-
-# Links to other websites
-
-useful tools for data science
-
-* [Google](https://www.google.com/)
-* [P8105](https://www.p8105.com/)
-
-# Local Image
-
-here's some emotion
-
-![](john.jpg)
-
-<img src="john.jpg" style = "width:75%">
+<center>
+<img src="snp.jpg" alt="centered image" style = "width:45%" >
+</center>
 
 
-# Link to page within site
-
-[About me](about.html)
 
 
 
