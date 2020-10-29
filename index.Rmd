@@ -8,6 +8,8 @@ output:
 ## About Me
 MPH, Epidemiology. Focus on infectious disease and global health. Advocate for human rights, female empowerment, and Crenshaw's intersectionality framework. 
 
+Poet, artist, and data scientist. I am from South Florida with a family history from Guyana. Multilingual with an ambition to expand my language abilities. Proficient in R, SAS, and GIS with an ambition to expand my programming abilities. 
+
 On this site, you will find my experiences, academic history, and an example dashboard using data from the P8105 data science class. 
 
 <center>
