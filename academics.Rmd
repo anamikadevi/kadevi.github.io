@@ -6,33 +6,49 @@ output:
     toc_float: true
 ---
 
+----------------- 
+
 ## Degrees
 
+__MPH, Epidemiology__
 
+  • Columbia University Mailman School of Public Health
 
+  • Certificate in Global Health
+  
+  • Focus on emerging and infectious disease
+  
+__B.A. Spanish__
 
+  • University of Florida
 
+  • Focus on Spanish translation and interpretation
+  
+  • Focus on biochemistry and microbiology
 
-
-
-
-
+----------------- 
 
 ## Coursework 
 
+__Columbia University Mailman School of Public Health__
+
+_Epidemiology_
+
+  • Application of Epidemiological Research Methods
+
+  • Analysis of Catagorical Data
+  
+  • Applied Regression I
+
+  • Epidemiology II & III
+
+_Global Health_
+
+  • Priorities in Global Health
+  
+  • Communicable Diseases in Complex Emergencies
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+----------------- 
 
 ## Academic Projects
