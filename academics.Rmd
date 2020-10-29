@@ -1,0 +1,38 @@
+---
+title: "Academic History"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Degrees
+
+
+
+
+
+
+
+
+
+
+
+## Coursework 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Academic Projects

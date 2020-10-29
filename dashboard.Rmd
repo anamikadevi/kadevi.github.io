@@ -1,13 +1,11 @@
 ---
-title: "Dashboard"
+title: "Restaurants in Washington Heights"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
     source: embed
 ---
-
-**If dashboard is not in correct format, rebuild website or use direct command rmarkdown::render("dashboard_template.Rmd", output_format = "flexdashboard::flex_dashboard")
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
@@ -17,19 +15,16 @@ library(plotly)
 ```
 
 ```{r}
-data("nyc_airbnb")
+data("rest_inspec")
 
-nyc_airbnb = 
-  nyc_airbnb %>% 
-  mutate(rating = review_scores_location / 2) %>% 
-  select(neighbourhood_group, neighbourhood, rating, price, lat, long, room_type) %>% 
-  filter(
-    neighbourhood_group == "Manhattan", 
-    price %in% 100:500, 
-    room_type == "Entire home/apt"
-  ) %>% 
-  drop_na(rating)
+rest_inspec = 
+rest_inspec %>% 
+  filter(critical_flag == "Critical", 
+         grade %in% c("A", "B", "C")) %>% 
+  select(building, boro, cuisine_description, dba, inspection_date, 
+         street, violation_description, zipcode, grade, score)
 ```
+
 
 Column {data-width=650}
 -----------------------------------------------------------------------
@@ -37,11 +32,14 @@ Column {data-width=650}
 ### Chart A
 
 ```{r}
-nyc_airbnb %>% 
-  mutate(text_label = str_c("Price: $", price, "\nRating: ", rating)) %>% 
-  plot_ly(
-    x = ~lat, y = ~long, color = ~price, text = ~text_label, alpha = 0.5,
-    type = "scatter", mode = "markers")
+rest_inspec %>% 
+  filter(cuisine_description == "Bakery", 
+         zipcode %in% c("10033", "10032", "10040")) %>% 
+   mutate(text_label = str_c("Violation", violation_description)) %>% 
+  plot_ly(x = ~dba, y = ~grade, alpha = 0.5, color = ~grade, text = ~text_label,
+    type = "scatter", mode = "markers", colors = "viridis")
+
+## Add labels
 ```
 
 Column {data-width=350}
@@ -50,19 +48,24 @@ Column {data-width=350}
 ### Chart B
 
 ```{r}
-nyc_airbnb %>% 
-  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% 
-  plot_ly(y = ~price, x = ~neighbourhood, color = ~neighbourhood,
-          type = "box", colors = "viridis")
+rest_inspec %>% 
+  filter(cuisine_description == "Bakery") %>% 
+  group_by(boro) %>% 
+  count(cuisine_description) %>% 
+  mutate(boro = fct_reorder(boro, n)) %>%
+  plot_ly(x = ~boro, y = ~n, color = ~boro,
+          type = "bar", colors = "viridis")
 ```
+
 
 ### Chart C
 
 ```{r}
-nyc_airbnb %>% 
-  count(neighbourhood) %>% 
-  mutate(neighbourhood = fct_reorder(neighbourhood, n)) %>% 
-  plot_ly(y = ~n, x = ~neighbourhood, color = ~neighbourhood,
-          type = "bar", colors = "viridis")
+rest_inspec %>% 
+  filter(cuisine_description == "Bakery") %>% 
+  group_by(inspection_date, boro) %>% 
+  summarize(average_score = mean(score)) %>% 
+  plot_ly(x = ~average_score, y = ~boro, color = ~boro,
+    type = "box", colors = "viridis")
 ```
 

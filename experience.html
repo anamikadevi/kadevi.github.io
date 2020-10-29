@@ -11,7 +11,7 @@
 
 
 
-<title>Kristina Anamika Devi Howell</title>
+<title>Professional Experiences</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -250,6 +253,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -257,6 +323,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -312,23 +388,68 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Kristina Anamika Devi Howell</h1>
+<h1 class="title toc-ignore">Professional Experiences</h1>
 
 </div>
 
 
 <hr />
-<div id="about-me" class="section level2">
-<h2>About Me</h2>
-<p>MPH, Epidemiology. Focus on infectious disease and global health. Advocate for human rights, female empowerment, and Crenshaw’s intersectionality framework.</p>
-<p>On this site, you will find my experiences, academic history, and an example dashboard using data from the P8105 data science class.</p>
-<center>
-<img src="SNP.JPG" alt="centered image" style = "width:45%" >
-</center>
+<div id="research-assistant" class="section level2">
+<h2>Research Assistant</h2>
+<p>Universidad Mayor Internship</p>
+<p>May 2020 – Present</p>
+<p>Quantifying the effects of the October 2019 Chilean protests (crowd control measures: police brutality and tear gas) on health system utilization with emergency consultation data as a proxy measure</p>
+<p>• Refined research hypothesis, defined study criteria, and determined appropriate analytic methods</p>
+<p>• Responsible for literature reviews, background writing, data modeling, and final reports</p>
+</div>
+<div id="research-assistant-1" class="section level2">
+<h2>Research Assistant</h2>
+<p>Columbia University Mailman School of Public Health, SidHARTe Program</p>
+<p>Mar 2020 – Present</p>
+<p>SidHARTe focuses on strengthening emergency systems globally through a partnership with the Ministries of Health in Ghana and Rwanda providing research, technical assistance, and curriculum development to expand access to emergency care.</p>
+<p>• Responsible for literature reviews, technical digest creation, and research proposals</p>
+<p>• Co-author of an upcoming paper on high risk infection points of COVID-19 in low and middle income countries</p>
+</div>
+<div id="shands-hospital-patient-care-assistant" class="section level2">
+<h2>Shands Hospital Patient Care Assistant</h2>
+<p>UF Health Full-time</p>
+<p>Apr 2018 – Aug 2019</p>
+<p>Gainesville, Florida</p>
+<p>Unit 94: Intermediate Care/ Intensive Care Unit</p>
+<p>• Monitored groups of 10-30 patients in critical settings, providing rapid response aid to nurses or doctors in capacities ranging from medical interpretation to surgical aid, while performing various nursing duties throughout the shift, such as IV’s, catheters, charting, vitals monitoring, portmortem care and familial support</p>
+<p>• 2019 Recipient of the Florence Nightingale Award for Nursing Excellence</p>
+</div>
+<div id="library-assistant" class="section level2">
+<h2>Library Assistant</h2>
+<p>University of Florida Smathers Libraries &amp; Special Collections</p>
+<p>Jun 2015 – Dec 2018</p>
+<p>Gainesville, Florida</p>
+<p>Latin American and Caribbean Collections</p>
+<p>Rare Books Collection</p>
+<p>• Stationed at circulation desk to assist graduate and international researchers in reference material identification, location, and translation</p>
+<p>• Performed cost benefit analyses of future library purchases, statistics of patron visits and inquiries, and cataloguing of rare books, new books, and lost materials</p>
+<p>• Led shifting project for mass movement of library material across branches</p>
+</div>
+<div id="microbiology-labs-teaching-assistant" class="section level2">
+<h2>Microbiology Labs Teaching Assistant</h2>
+<p>University of Florida</p>
+<p>Aug 2016 – May 2017</p>
+<p>• Assisted the graduate TA by developing course material and quizzes, leading weekly lectures, and instructing students in small groups</p>
+<p>• Graded homework, lab notebooks, and essays of 30+ students weekly</p>
+<p>• Taught students various microbiology skills, including microscopy, cell cultures, gram staining, DNA extraction, and bioinformatics</p>
+</div>
+<div id="emergency-medical-responder-teaching-assistant" class="section level2">
+<h2>Emergency Medical Responder Teaching Assistant</h2>
+<p>University of Florida</p>
+<p>Jun 2015 – Dec 2015</p>
+<p>• Led weekly workshops teaching students in small groups knowledge based and skill based EMS requirements, including but not limited to anatomy, toxicology, and trauma assessment/ treatment.</p>
+<p>• Developed my educational rapport, connected with students, and learned to identify trouble areas where they may need assistance.</p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -361,6 +482,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

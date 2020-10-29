@@ -5,8 +5,8 @@ navbar:
   right:
     - text: "Experience"
       href: experience.html
-    - text: "Plotly"
-      href: plotly.html
+    - text: "Academic History"
+      href: academics.html
     - text: "Dashboard"
       href: dashboard.html
     - icon: fa-envelope fa-lg
