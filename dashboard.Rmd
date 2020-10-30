@@ -21,7 +21,8 @@ rest_inspec =
 rest_inspec %>% 
   filter(critical_flag == "Critical", 
          grade %in% c("A", "B", "C")) %>% 
-  select(building, boro, cuisine_description, dba, inspection_date, 
+  rename("name" = "dba") %>% 
+  select(building, boro, cuisine_description, name, inspection_date, 
          street, violation_description, zipcode, grade, score)
 ```
 
@@ -36,10 +37,10 @@ rest_inspec %>%
   filter(cuisine_description == "Bakery", 
          zipcode %in% c("10033", "10032", "10040")) %>% 
    mutate(text_label = str_c("Violation", violation_description)) %>% 
-  plot_ly(x = ~dba, y = ~grade, alpha = 0.5, color = ~grade, text = ~text_label,
+  plot_ly(x = ~name, y = ~grade, alpha = 0.5, color = ~grade, text = ~text_label,
     type = "scatter", mode = "markers", colors = "viridis")
 
-## Add labels
+## I would love to figure out how to do text wrapping in hover labels. 
 ```
 
 Column {data-width=350}
