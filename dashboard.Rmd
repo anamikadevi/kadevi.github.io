@@ -29,7 +29,7 @@ rest_inspec %>%
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Bakeries in Washington Heights with their respective grades and violations
 
 ```{r}
 rest_inspec %>% 
@@ -45,7 +45,7 @@ rest_inspec %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Total Number of Bakeries By Borough
 
 ```{r}
 rest_inspec %>% 
@@ -58,14 +58,14 @@ rest_inspec %>%
 ```
 
 
-### Chart C
+### Average Health Score of Bakeries by Borough
 
 ```{r}
 rest_inspec %>% 
   filter(cuisine_description == "Bakery") %>% 
   group_by(inspection_date, boro) %>% 
   summarize(average_score = mean(score)) %>% 
-  plot_ly(x = ~average_score, y = ~boro, color = ~boro,
+  plot_ly(x = ~boro, y = ~average_score, color = ~boro,
     type = "box", colors = "viridis")
 ```
 
