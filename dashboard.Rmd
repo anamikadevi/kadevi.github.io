@@ -1,5 +1,5 @@
 ---
-title: "Restaurants in Washington Heights"
+title: "Bakeries in New York City"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -19,8 +19,7 @@ data("rest_inspec")
 
 rest_inspec = 
 rest_inspec %>% 
-  filter(critical_flag == "Critical", 
-         grade %in% c("A", "B", "C")) %>% 
+  filter(grade %in% c("A", "B", "C")) %>% 
   rename("name" = "dba") %>% 
   select(building, boro, cuisine_description, name, inspection_date, 
          street, violation_description, zipcode, grade, score)
