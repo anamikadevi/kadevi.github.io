@@ -1,14 +1,43 @@
 ---
-title: "Professional Experiences"
+title: 
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
+&nbsp; 
+
+### Professional Experiences
+
 ----------------- 
 
-## Research Assistant
+#### Primary SAS Data Analyst
+
+__ICAP__
+
+September 2020 – Present
+
+The PHIA project conducts cross-sectional, nationally representative surveys to capture the state of the HIV epidemic in the most-affected countries as well as assess the current status and effectiveness of national programs in reaching HIV epidemic control. Results measure national and regional progress toward UNAIDS’ 90-90-90 and 95-95-95 targets and guide HIV policy and funding priorities as countries strive for epidemic control.
+
+*Responsibilities:* 
+
+• Produce table shells and run statistical tests specified in Statistical Analysis Plans (SAPs)
+
+• Write and validate SAS statistical programs
+
+• Review statistical results and SAS programs for inconsistencies
+
+• Assist with dataset cleaning and data management
+
+• Conduct data analyses and exploratory analyses
+
+• Summarize data in written formats
+
+
+----------------- 
+
+#### Research Assistant
 __Universidad Mayor__
 
 May 2020 – Present
@@ -24,8 +53,8 @@ Quantifying the effects of the October 2019 Chilean protests (crowd control meas
 
 ----------------- 
 
-## Research Assistant
-__Columbia University Mailman School of Public Health, SidHARTe Program__
+#### Research Assistant
+__SidHARTe Program, Columbia University Mailman School of Public Health__
 
 Mar 2020 – Present
 
@@ -37,10 +66,11 @@ SidHARTe focuses on strengthening emergency systems globally through a partnersh
 
 • Co-author of an upcoming paper on high risk infection points of COVID-19 in low and middle income countries
 
+
 ----------------- 
 
-## Shands Hospital Patient Care Assistant
-__UF Health__
+#### Patient Care Assistant
+__UF Health Shands Hospital__
 
 Apr 2018 – Aug 2019
 
@@ -59,7 +89,7 @@ Unit 94: Intermediate Care/ Intensive Care Unit
 
 ----------------- 
 
-## Library Assistant
+#### Library Assistant
 __University of Florida Smathers Libraries & Special Collections__
 
 Jun 2015 – Dec 2018
@@ -80,10 +110,15 @@ Rare Books Collection
 
 • Led shifting project for mass movement of library material across branches
 
+&nbsp; 
 
------------------ 
+------------------
 
-## Microbiology Labs Teaching Assistant
+### Teaching Experiences
+
+-----------------
+
+#### Microbiology Labs Teaching Assistant
 __University of Florida__
 
 Aug 2016 – May 2017
@@ -96,10 +131,10 @@ Aug 2016 – May 2017
 
 • Taught students various microbiology skills, including microscopy, cell cultures, gram staining, DNA extraction, and bioinformatics
 
+
 ----------------- 
 
-
-## Emergency Medical Responder Teaching Assistant
+#### Emergency Medical Responder Teaching Assistant
 __University of Florida__
 
 Jun 2015 – Dec 2015
@@ -110,4 +145,73 @@ Jun 2015 – Dec 2015
 
 • Developed my educational rapport, connected with students, and learned to identify trouble areas where they may need assistance.
 
+&nbsp; 
 
+------------------
+
+### Leadership Roles
+
+-----------------
+
+#### Health Educated Asian Leaders
+
+__Medical Interpreter__
+
+Guatemala, Spring 2016 
+
+• Provided accurate and culturally appropriate interpretations for 25 patients per day with a range of conditions, including Zika and other infectious diseases, in remote, resource-limited areas
+
+&nbsp; 
+
+__Health Panel Director__
+
+Summer 2016 - Spring 2017
+
+• Coordinated the biannual Health Panel event, including fundraising, sponsorships, organization of logistical committees (40+ individuals), design of promotional items and social media campaigns, 
+
+• Developed a new initiative focused on specific cultural concerns for Asian American health and mental health treatment by inviting prominent speakers from these communities to speak of their experience and opportunities for growth
+
+• Communicated effectively and concisely to prior Asian American students currently in professional health schools to return for the fall panel and admissions directors from the various health graduate schools within UF for the spring panel
+
+&nbsp; 
+
+__Medical Trip Leader__
+
+Costa Rica, Spring 2018
+
+• Spearheaded a new travel program for visiting students to provide sustainable and free care to marginalized communities, interpreting for and educating them on providing holistic and culturally competent care while also teaching valuable rural medical skills
+
+
+&nbsp; 
+
+------------------
+
+### Volunteering Experiences
+
+-----------------
+
+#### No One Dies Alone Volunteer
+__Haven Hospice__
+
+Feb 2018 - July 2018
+
+When an individual does not have family nearby as end of life approaches, specially-trained volunteers from Haven Hospice will be there to answer questions, hold a hand and be a supportive presence for all patients who need it.
+
+*Responsibilities:*
+
+• Provide a comforting presence to patients during their last hours of life in care centers, facilities and homes.
+
+
+-----------------
+
+#### Emergency Medical Responder 
+
+__UF Health Shandscair__
+
+Summer 2015 
+
+*Responsibilities:*
+
+• Volunteered with EMTs and paramedics during peak hours 
+
+• Set up EKGs, collected vitals, and documented patient histories

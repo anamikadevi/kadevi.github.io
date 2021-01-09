@@ -1,26 +1,32 @@
 ---
-title: "Academic History"
+title: ""
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
+&nbsp; 
+
+## Academic History
+
 ----------------- 
 
-## Degrees
+### Degrees 
 
 __MPH, Epidemiology__
 
-  • Columbia University Mailman School of Public Health
+_Columbia University Mailman School of Public Health_
 
   • Certificate in Global Health
   
   • Focus on emerging and infectious disease
   
+&nbsp;  
+  
 __B.A. Spanish__
 
-  • University of Florida
+_University of Florida_
 
   • Focus on Spanish translation and interpretation
   
@@ -28,27 +34,75 @@ __B.A. Spanish__
 
 ----------------- 
 
-## Coursework 
+### Graduate Coursework 
 
-__Columbia University Mailman School of Public Health__
-
-_Epidemiology_
-
-  • Application of Epidemiological Research Methods
-
-  • Analysis of Catagorical Data
-  
-  • Applied Regression I
+__Epidemiology__
 
   • Epidemiology II & III
+  
+  • Application of Epidemiological Research Methods (SAS)
 
-_Global Health_
+  • Analysis of Categorical Data (SAS)
+  
+  • Applied Regression I
+  
+  • Data Science (R)
+  
+  • Emerging Infectious Disease
+  
+  • Epidemiology and Control of TB
+  
+  • Epidemiological Modeling of Infectious Disease
+  
+&nbsp;  
+
+__Global Health__
 
   • Priorities in Global Health
   
   • Communicable Diseases in Complex Emergencies
+  
+  • Public Health GIS
+  
+  • Malaria Program Planning
+  
+&nbsp;  
+  
+__Public Health__
 
+  • History, Ethics, and Human Rights of Public Health
+  
+  • Social, Biological, and Environmental Determinants of Health
+  
+  • Global and Developmental Perspectives
 
+  • Public Health Interventions
+  
+  • US and Global Health Systems
+  
+  
 ----------------- 
 
-## Academic Projects
+### Academic Projects
+
+  • __Health determinants based analysis__ of the disproportionate rates of asthma across NYC boroughs
+  
+  • __Assessment of preparedness and outbreak response__ to the Measles epidemic and associated complex emergencies in Pakistan, 2012
+  
+  • __Strategic plan__ for the implementation of the COVID-19 emergency outbreak response in Egypt
+  
+  • __Expression of Interest__ to India’s National Tuberculosis Elimination Program to integrate public and private sectors to improve reporting, treatment outcomes, and reduce overall disease burden of Tuberculosis in Lucknow, India
+  
+  • __Policy Memo:__ Proposal to the Bureau of Justice Assistance to create substantial gains in the face of the opioid epidemic through the endorsement and increased utilization of Medication Assisted Treatment in New York drug courts through various proposed mechanisms
+  
+  • __Policy Memo:__ Proposal to the Zambian Ministry of Water Development & Sanitation to increase the availability of clean drinking water, sanitation facilities, and hygiene services throughout Zambia to meet WASH basic levels and the Sustainable Development Goals
+
+  • __Policy Memo:__ Proposal to the Malaria Investigation branch of CHAI Guatemala to decrease Malaria burden in Guatemala through cooperation with plantation worker organizations to create structured and sustainable treatment centers throughout the region
+  
+
+
+
+
+
+
+

@@ -1,16 +1,27 @@
 ---
-title: "Kristina Anamika Devi Howell"
+title: 
 output: 
   html_document
 ---
------------------------------------
+&nbsp;  
 
-## About Me
-MPH, Epidemiology. Focus on infectious disease and global health. Advocate for human rights, female empowerment, and Crenshaw's intersectionality framework. 
+## Kristina Anamika Devi Howell
 
-Poet, artist, and data scientist. I am from South Florida with a family history from Guyana. Multilingual with an ambition to expand my language abilities. Proficient in R, SAS, and GIS with an ambition to expand my programming abilities. 
+-----------------------
 
-On this site, you will find my experiences, academic history, and an example dashboard using data from the P8105 data science class. 
+### About Me
+
+&nbsp;  
+
+I graduate in May of 2021 with an MPH in epidemiology and global health. My academics were strongly based in infectious disease, data analysis, and biostatistics. My professional work has focused on health systems strengthening, emergency care, and policy based data analysis. 
+
+
+I am an advocate for human rights, female empowerment, and Crenshaw's intersectionality framework. I identify as a poet, artist, and data scientist. I am from South Florida with a family history from Guyana. I am multilingual with an ambition to expand my language abilities. I am also proficient in R, SAS, and GIS with an ambition to expand my programming abilities. 
+
+
+On this site, you will find my professional experiences and academic history. 
+
+&nbsp;  
 
 <center>
 <img src="snp.jpg" alt="centered image" style = "width:45%" >

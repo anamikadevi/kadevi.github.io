@@ -7,8 +7,6 @@ navbar:
       href: experience.html
     - text: "Academic History"
       href: academics.html
-    - text: "Dashboard"
-      href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<devikristina27@gmail.com>
     - icon: fa-linkedin
@@ -17,5 +15,6 @@ navbar:
       href: http://github.com/anamikadevi/
 output:
   html_document:
+    css: style.css
     theme: yeti
     
