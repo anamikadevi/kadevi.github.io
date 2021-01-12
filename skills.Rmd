@@ -1,0 +1,580 @@
+---
+title: ""
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+&nbsp; 
+
+## Skills
+
+----------------- 
+
+### Programming
+
+-----------------
+
+__SAS__
+
+  • Descriptive statistics
+  
+  • Multiple types of regression
+  
+  • Data cleaning and manipulation
+  
+  • Basic Macro experience
+  
+  The below code is an example of a full project code I have written for the Applied Regression class, examining the relationship between occupational stability and blood pressure. 
+  
+```{r, eval = FALSE}
+*********************************************************
+libnames
+*********************************************************;
+
+libname demo xport "/home/u45112562/sasuser.v94/data/DEMO_J.XPT";
+libname bpx xport "/home/u45112562/sasuser.v94/data/BPX_J.XPT";
+libname hsq xport "/home/u45112562/sasuser.v94/data/HSQ_J.XPT";
+libname ocq xport "/home/u45112562/sasuser.v94/data/OCQ_J.XPT";
+
+*NOTE: update the pathname specific to your sas user id;
+
+
+
+*********************************************************
+Data cleaning & merging
+*********************************************************;
+
+*Create datasets in the work directory;
+
+data demo; set demo.demo_j; run;
+data bpx; set bpx.bpx_j; run;
+data hsq; set hsq.hsq_j; run;
+data ocq; set ocq.ocq_j; run;
+
+*Variables of interest:
+	Identifier:
+		SEQN
+	Exposure:
+		RIDRETH3
+		RIDAGEYR
+		RIAGENDR
+		DMDEDUC2
+		OCD270
+		HSD010
+	Outcome: 
+		BPXSY1;
+
+
+*Keep variables of interest;
+data demo; set demo;
+keep seqn ridreth3 ridageyr riagendr dmdeduc2; 
+run;
+
+data hsq; set hsq;
+keep seqn HSD010; 
+run;
+
+data ocq; set ocq;
+keep seqn ocd270; 
+run;
+
+data bpx; set bpx;
+keep seqn bpxsy1; 
+run;
+
+*Sort by unique identifier;
+
+proc sort data = demo; by seqn; run; 
+proc sort data = hsq; by seqn; run; 
+proc sort data = ocq; by seqn; run; 
+proc sort data = bpx; by seqn; run; 
+
+*Merge into a complete dataset;
+
+data comp; 
+merge demo hsq ocq bpx; 
+by seqn; 
+run;
+
+data comp; set comp; 
+where ridageyr GE 18
+	and hsd010 not in (7, 9, .) 
+	and ocd270 not in (77777, 99999, .) 
+	and dmdeduc2 not in (7, .) 
+	and bpxsy1 ne .;
+run;
+
+proc freq data = comp; run;
+
+*Sample size: 2475;
+*Note: no missing values in the dataset;
+
+
+
+*********************************************************
+Variable recodes and formats
+*********************************************************;
+
+*****ridreth3; 
+proc format; 
+value racef 1 = "Mexican- American"	 2 = "Other Hispanic"
+			      3 = "Non-Hispanic White" 4 = "Non-Hispanic Black"
+			      6 = "Non-Hispanic Asian" 7 = "Other Race";
+run;
+
+data comp; set comp;
+format ridreth3 racef.;
+run;
+
+
+
+*****riagendr; 
+proc format; 
+value sexf 1 = "Male"	 2 = "Female";
+run;
+
+data comp; set comp; 
+format riagendr sexf.;
+run;
+
+
+
+*****DMDEDUC2;
+proc format; 
+value eduf 1 = "Less than 9th grade"	 	
+			2 = "9-11th grade"
+			3 = "High school graduate/GED" 
+			4 = "Some college or AA degree"
+			5 = "College graduate or above";
+run;
+
+data comp; set comp; 
+format dmdeduc2 eduf.;
+run;
+
+
+
+*****hsd010;
+proc format; 
+value healthf 	1 = "Excellent"	 	2 = "Very Good"
+				3 = "Good" 			4 = "Fair"
+				5 = "Poor" ;
+run;
+
+data comp; set comp;
+format hsd010 healthf.;
+run;
+
+
+
+*********************************************************
+Preliminary Analyses
+*********************************************************;
+
+***************************Individual univariate analyses
+
+Applicable to variables:
+	OCD270
+	HSD010
+	BPXSY1;
+	
+	
+*OCD270: Time at current job;
+proc univariate data = comp;
+var ocd270; 
+histogram ocd270/ normal; 
+run;
+
+
+*HSD010: Self reported health status;
+proc univariate data = comp;
+var hsd010; 
+histogram hsd010/ normal; 
+run;
+
+
+*BPXSY1: First Systolic BP Reading;
+proc univariate data = comp;
+var bpxsy1; 
+histogram bpxsy1/ normal; 
+run;
+
+
+
+*********************************Linear Regression Models
+
+*Variables of interest:
+	Exposure:
+		RIDRETH3
+		RIAGENDR
+		DMDEDUC2
+		RIDAGEYR
+		OCD270
+		HSD010
+	Outcome: 
+		BPXSY1;
+
+	
+*Ethnicity (ridreth3 x bpxsy1);
+proc glm data = comp order = freq; 
+class ridreth3 (ref = 'Non-Hispanic White');
+model bpxsy1 = ridreth3 / solution;
+run;
+	*Significant F-test and 
+	mostly significant parameter values;
+	
+	
+
+*Gender (riagendr x bpxsy1);
+proc glm data = comp order = freq; 
+class riagendr;
+model bpxsy1 = riagendr / solution;
+run;
+	*Significant F-test and parameter values;
+
+
+
+*Education Level (dmdeduc2 x bpxsy1);
+proc glm data = comp order = freq; 
+class dmdeduc2;
+model bpxsy1 = dmdeduc2 / solution;
+run;
+	*Significant F-test and 
+	mostly significant parameter values;
+
+
+
+*Age (ridageyr x bpxsy1);
+proc glm data = comp; 
+model bpxsy1 = ridageyr / solution;
+run;
+	*Significant F-test and parameter values;
+
+
+
+*Time at job (ocd270 x bpxsy1);
+proc glm data = comp order = freq; 
+model bpxsy1 = ocd270 / solution;
+run;
+	*Significant F-test and parameter values;
+
+
+
+*Self reported health (hsd010 x bpxsy1);
+proc glm data = comp order = freq; 
+class hsd010 (ref = "Excellent");
+model bpxsy1 = hsd010 / solution;
+run;
+	*Significant F-test and parameter values;
+
+
+
+*********************************************************
+Regression Diagnostics
+*********************************************************;
+
+****Assumption: only including continuous variables, 
+	excluding age as it is bounded,
+	leaves only ocd270;
+
+
+****Obtaining jackknife residuals, leverage values, DFFITS, etc.;
+proc reg data = comp;
+  model bpxsy1 = ocd270; 
+  output out = bpx_fit
+  	(keep = bpxsy1 ocd270 hsd010 ridreth3 ridageyr riagendr dmdeduc2
+  			student_jack lev DFFITS COOKD residual student_res)
+	DFFITS = DFFITS 
+	COOKD = COOKD
+	residual = residual 
+	student = student_res
+	rstudent = student_jack 
+	h = lev;
+run;
+
+
+
+****Identifying high studentized/jackknife residuals;
+data bpx_fit_res;
+set bpx_fit;
+if student_res > 2 or student_res < -2 
+	or student_jack > 2 or student_jack < -2; 
+run;
+
+proc sort data = bpx_fit_res;
+by descending student_jack;
+run;
+
+proc print data = bpx_fit_res; run;
+
+*98 observations;
+
+
+
+****Identifying high leverage points;
+data bpx_fit_lev;
+set bpx_fit;
+if lev > 2 * 2 / 2745;
+run;
+
+proc sort data = bpx_fit_lev;
+by descending lev;
+run;
+
+proc print data = bpx_fit_lev; run;
+
+*198 observations;
+
+
+
+****Identifying high DFFITS or Cooks values;
+data bpx_fit_dff;
+set bpx_fit;
+DFFITS_bar = 2 * sqrt( 2 /(2475 - 2));
+if DFFITS > DFFITS_bar or cookD>0.5;
+run;
+
+proc sort data = bpx_fit_dff;
+by descending DFFITS;
+run;
+
+proc print data = bpx_fit_dff; run;
+
+*85 observations;
+
+
+
+****Removing influential data points
+	Assessment: DFFITS > 2sqrt(p/(n-p));
+
+data comp_2; set bpx_fit; 
+DFFITS_bar = 2 * sqrt( 2 /(2475 - 2));
+if DFFITS > DFFITS_bar then delete;
+run;
+
+*2390 total observations remain;
+
+
+
+****Identifying multicollinearity;
+proc reg data = comp_2; 
+model bpxsy1 = hsd010 ridreth3 ridageyr riagendr dmdeduc2 ocd270 
+/vif tol collin;
+run;
+
+*No significant VIF values, tolerance values, 
+	condition index values, or proportion of variance values.
+
+	
+
+
+*********************************************************
+Model Selection
+*********************************************************;
+
+*Maximum Model;
+proc glm data = comp_2 order = freq PLOTS(MAXPOINTS= 7000); 
+class hsd010 (ref = "Excellent") 
+	  ridreth3 (ref = 'Non-Hispanic White') 
+	  riagendr dmdeduc2;
+model bpxsy1 = ocd270
+	  hsd010 ridreth3 ridageyr riagendr dmdeduc2 
+	  / solution ss3;
+run;
+
+
+
+*Stepwise regression with 5 - fold cross validation;
+
+ods graphics on;
+proc glmselect data = comp_2 seed = 1234
+	plots(stepAxis = number) = (criterionPanel ASEPlot);
+class hsd010 (ref = "Excellent") 
+	  ridreth3 (ref = 'Non-Hispanic White') 
+	  riagendr dmdeduc2;
+model bpxsy1 = ocd270
+	  hsd010 ridreth3 ridageyr riagendr dmdeduc2 
+	  /selection = stepwise (select = SL choose = CV)
+	  cvMethod = split(5)
+      stats=all  showpvalues;
+run;
+ods graphics off;
+
+	**Cross validation determines the elimination of dmdeduc2;
+	
+	
+
+*********************************************************
+Regression Diagnostics II
+*********************************************************;
+
+*Regression diagnostics should not change as no continuous 
+variables were omitted from the model, only one categorical 
+variable, dmdeduc2
+
+	
+
+*********************************************************
+Final Assessment of Model Assumptions
+*********************************************************;
+
+***Linearity;
+proc reg data=comp_2; 
+model bpxsy1 = ocd270
+	  hsd010 ridreth3 ridageyr riagendr;
+plot rstudent.*p.;
+run;
+
+	*Pass: Randomly scattered around the 0 line, 
+	 No obvious trends;
+
+
+
+***Independece:
+Discussed in the data description section of the written report;
+
+	*Pass: NHANES quality;
+
+
+
+***Residual Normality;
+proc univariate data=comp_2 normal; var student_res; 
+histogram student_res/normal;
+qqplot student_res / normal(mu=est sigma=est);
+run; 
+
+	*Pass: Approximately a normal distribution of residuals;
+
+
+
+***Homoscedasticity;
+proc reg data=comp_2; 
+model bpxsy1 = ocd270
+	  hsd010 ridreth3 ridageyr riagendr
+	  /spec;
+run;
+
+	*Pass: Significant P-value of White Test;
+
+
+
+*********************************************************
+Final Analyses
+*********************************************************;
+
+***Hypothesis 1:
+
+		SBP on time at job 
+		Conditional on age, race, gender;
+		
+proc glm data = comp_2 order = freq PLOTS(MAXPOINTS= 7000); 
+class ridreth3 (ref = 'Non-Hispanic White') 
+	  riagendr;
+model bpxsy1 = ocd270
+	  ridageyr ridreth3 riagendr
+	  / solution ss3;
+run;
+
+	*Significant;
+	
+	
+
+***Hypothesis 2:
+
+		SBP on Time at job
+		Conditional on age, gender
+		Modified by race;
+		
+proc glm data = comp_2 order = freq PLOTS(MAXPOINTS= 7000); 
+class ridreth3 (ref = 'Non-Hispanic White') 
+	  riagendr;
+model bpxsy1 = ocd270
+	  ridageyr riagendr ridreth3 ocd270*ridreth3 
+	  / solution ss3;
+run;
+
+	*Interaction term not significant at all;
+	
+
+
+***Hypothesis 3:
+
+		SBP on Time at job
+		Conditional on race, gender
+		Modified by age;
+		
+proc glm data = comp_2 order = freq PLOTS(MAXPOINTS= 7000); 
+class ridreth3 (ref = 'Non-Hispanic White') 
+	  riagendr;
+model bpxsy1 = ocd270
+	  ridreth3 riagendr ridageyr ocd270*ridageyr  
+	  / solution ss3;
+run;
+
+	*Interaction term not significant at all;
+
+
+
+***Hypothesis 4:
+
+		SBP on Time at job
+		Conditional on age, race, gender
+		Modified by hsd;
+		
+proc glm data = comp_2 order = freq PLOTS(MAXPOINTS= 7000); 
+class ridreth3 (ref = 'Non-Hispanic White') 
+	  hsd010 (ref = "Excellent") 
+	  riagendr;
+model bpxsy1 = ocd270
+	  riagendr ridreth3 ridageyr hsd010 ocd270*hsd010  
+	  / solution ss3;
+run;
+
+	*Interaction term not significant at all;
+
+```
+  
+  
+  &nbsp;  
+  
+__R__
+  
+  • Extensive data cleaning and manipulation skills
+  
+  • Linear regression
+  
+  • API & web scraping
+  
+  • Iteration
+
+  • Geographical mapping and spatial regression
+  
+  &nbsp;  
+  
+__Geospatial Programming__
+
+  • GIS 
+  
+  • GeoDa
+  
+  • SaTScan
+  
+----------------- 
+
+### Language
+
+-----------------
+
+  • Spanish (C1)
+  
+  • Guyanese Creole (Fluent)
+
+
+
+
+
+
+

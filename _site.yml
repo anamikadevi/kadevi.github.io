@@ -7,6 +7,8 @@ navbar:
       href: experience.html
     - text: "Academic History"
       href: academics.html
+    - text: "Skills"
+      href: skills.html
     - icon: fa-envelope fa-lg
       href: mailto:<devikristina27@gmail.com>
     - icon: fa-linkedin
